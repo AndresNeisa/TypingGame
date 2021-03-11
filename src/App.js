@@ -48,6 +48,7 @@ function App() {
       setScore(score + 1);
       setNewWords([randomWords()]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[index]);
 
   useEffect(() =>{
@@ -66,14 +67,16 @@ function App() {
   },[timer,isPlaying])
 
   const handleInput = (event) => {
-    event.preventDefault();
-    const myKey = event.key;
-    if(myKey.toLowerCase() === words.english[index.word].charAt(index.letter + 1).toLowerCase()){
-      setIndex({...index, letter: index.letter + 1});
+    if(isPlaying){
+      event.preventDefault();
+      const myKey = event.key;
+      if(myKey.toLowerCase() === words.english[index.word].charAt(index.letter + 1).toLowerCase()){
+        setIndex({...index, letter: index.letter + 1});
+      }
+      if(event.keyCode === 13 && isPlaying){
+        setIndex({letter: -1, word: index.word + 1});
+        setNewWords([randomWords()]);
     }
-    if(event.keyCode === 13 && isPlaying){
-      setIndex({letter: -1, word: index.word + 1});
-      setNewWords([randomWords()]);
     }
   }
 
