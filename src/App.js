@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import randomWords from 'random-words';
 import SecretWord from './SecretWord';
 import axios from 'axios';
@@ -35,6 +35,8 @@ function App() {
       </p>
     );
   });
+
+  let wordField = React.createRef();
 
   useEffect(() => {
     document.addEventListener('keydown', handleInput);
@@ -73,6 +75,15 @@ function App() {
       if(myKey.toLowerCase() === words.english[index.word].charAt(index.letter + 1).toLowerCase()){
         setIndex({...index, letter: index.letter + 1});
       }
+      else{
+
+        wordField.current.classList.remove('shakeEffect');
+
+        void wordField.current.offsetWidth;
+
+        wordField.current.classList.add('shakeEffect');
+        
+      }
       if(event.keyCode === 13 && isPlaying){
         setIndex({letter: -1, word: index.word + 1});
         setNewWords([randomWords()]);
@@ -85,6 +96,15 @@ function App() {
       const myKey = value;
       if(myKey.toLowerCase() === words.english[index.word].charAt(index.letter + 1).toLowerCase()){
         setIndex({...index, letter: index.letter + 1});
+      }
+      else{
+
+        wordField.current.classList.remove('shakeEffect');
+
+        void wordField.current.offsetWidth;
+
+        wordField.current.classList.add('shakeEffect');
+        
       }
       if(value === '.' && isPlaying){
         setIndex({letter: -1, word: index.word + 1});
@@ -147,7 +167,7 @@ function App() {
       </div>
 
       <div className={isPlaying ? '':'hidden'}>
-        <p className='word'>{words.translate[index.word]}</p>
+        <p className={`word`} ref={wordField}>{words.translate[index.word]}</p>
         <SecretWord word={words.english[index.word]} index={index} handleMobileInput={handleMobileInput}/>
       </div>
       
