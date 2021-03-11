@@ -99,7 +99,8 @@ body{
   text-align: center;
 }
 
-.secret-word:focus{
+.secret-word:focus
+.hidden-text:focus{
   outline: none;
 }
 
@@ -110,6 +111,22 @@ body{
 
 .hidden{
   display: none;
+}
+
+.secret-word-container{
+  position: relative;
+  width: 100%;
+}
+
+.hidden-text{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
  @media only screen and (max-width: 700px) {
