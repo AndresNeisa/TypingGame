@@ -128,10 +128,10 @@ body{
   display: none;
 }
 
-/* .secret-word:focus,
+.secret-word:focus,
 .hidden-text:focus{
   outline: none;
-} */
+}
 
  @media only screen and (max-width: 700px) {
   .languages{
@@ -156,5 +156,10 @@ body{
 
   .hidden-text{
     display: block;
+  }
+
+  .word,
+  .secret-word{
+    font-size: 3rem;
   }
 } 
