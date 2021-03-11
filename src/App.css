@@ -93,6 +93,14 @@ body{
 .secret-word{
   font-size: 3.5rem;
   color: #ffd803;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  text-align: center;
+}
+
+.secret-word:focus{
+  outline: none;
 }
 
 .selected,

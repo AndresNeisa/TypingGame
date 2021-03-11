@@ -3,9 +3,10 @@ import React from "react";
 const SecretWord = ({word ='', index}) => {
 
     return(
-        <p className="secret-word">
-        {[...word].map((l, i) => index.letter >= i ? l : l === ' ' ? ' ' : '_ ')}
-        </p>
+        <input className="secret-word"
+        value = {[...word].map((l, i) => index.letter >= i ? l : l === ' ' ? ' ' : '_').join(" ")}
+        readOnly
+        />
     );
 }
 
