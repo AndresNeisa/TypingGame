@@ -135,7 +135,7 @@ function App() {
 
       <div className={isPlaying ? '':'hidden'}>
         <p className='word'>{words.translate[index.word]}</p>
-        <SecretWord word={words.english[index.word]} index={index}/>
+        <SecretWord word={words.english[index.word]} index={index} handleInput={handleInput}/>
       </div>
       
     </div>
