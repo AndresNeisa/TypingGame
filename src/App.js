@@ -80,6 +80,19 @@ function App() {
     }
   }
 
+  const handleMobileInput = (value) => {
+    if(isPlaying){
+      const myKey = value;
+      if(myKey.toLowerCase() === words.english[index.word].charAt(index.letter + 1).toLowerCase()){
+        setIndex({...index, letter: index.letter + 1});
+      }
+      if(value === '.' && isPlaying){
+        setIndex({letter: -1, word: index.word + 1});
+        setNewWords([randomWords()]);
+    }
+    }
+  }
+
   const setNewWords = async (newWords, newGame = false) =>{
     const translatedWords = await Promise.all(newWords.map(async (word) => doTranslation(word)));
     if(newGame) {
@@ -135,7 +148,7 @@ function App() {
 
       <div className={isPlaying ? '':'hidden'}>
         <p className='word'>{words.translate[index.word]}</p>
-        <SecretWord word={words.english[index.word]} index={index} handleInput={handleInput}/>
+        <SecretWord word={words.english[index.word]} index={index} handleMobileInput={handleMobileInput}/>
       </div>
       
     </div>
