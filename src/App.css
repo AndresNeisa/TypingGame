@@ -87,6 +87,7 @@ body{
 }
 
 .word{
+  color: #272343;
   font-size: 3.5rem;
 }
 
@@ -161,6 +162,7 @@ body{
   .word,
   .secret-word{
     font-size: 3rem;
+    color:
   }
 } 
 
@@ -173,12 +175,15 @@ body{
 
 @keyframes shake {
   0% {
+    color: #ff3145;
     transform: translate(3px, 0);
   }
   50% {
+    color: #ff3145;
     transform: translate(-3px, 0);
   }
   100% {
+    color: #ff3145;
     transform: translate(0, 0);
   }
 }
