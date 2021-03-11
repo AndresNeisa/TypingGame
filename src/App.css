@@ -1,38 +1,127 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+
+body{
+  background-color: #e3f6f5;
+  font-family: 'Lato', sans-serif;
+}
+
 .App {
   text-align: center;
+  background-color: #fffffe;
+  width: 70%;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2.5rem 3rem;
+  border-radius: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title{
+  font-size: 2.5rem;
+  padding-bottom: 0.5em;
+  color: #272343;
+  letter-spacing: 0.1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.subtitle{
+  font-size: 1.5rem;
+  color: #2d334a;
+  margin-bottom: 2.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.btn{
+  background-color: #ffd803;
+  border: solid #272343 3px;
+  color: #272343;
+  border-radius: 5px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 0.5em 1em;
+  margin-bottom: 1rem;
+
+  transition: transform 200ms cubic-bezier(.561, -.163, .246, 1.27), -webkit-transform 200ms cubic-bezier(.561, -.163, .246, 1.27);
+}
+
+.btn:hover{
+  box-shadow: 0 5px 15px -10px #000;
+  transform: translate(0px, -2px);
+}
+
+.stats-container{
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+}
+.stats-container .subtitle{
+  margin-bottom: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.language-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.languages{
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #272343;
+  border: solid #272343 2px;
+  border-radius: 3px;
+  width: 32.5%;
+  min-width: 110px;
+  text-align: left;
+
+  padding-block: 0.5rem; 
+  padding-left: 1rem;
+  margin-right: 0.8%;
+  margin-bottom: 0.3rem;
+  cursor: pointer;
 }
+
+.word{
+  font-size: 3.5rem;
+}
+
+.secret-word{
+  font-size: 3.5rem;
+  color: #ffd803;
+}
+
+.selected,
+.languages:hover{
+  background-color: #ffd803;
+}
+
+.hidden{
+  display: none;
+}
+
+ @media only screen and (max-width: 700px) {
+  .languages{
+    width: 48%;
+  }
+
+  .App{
+    width: 80%;
+  }
+} 
+
+@media only screen and (max-width: 550px) {
+  html{
+    font-size: 80%;
+  }
+  .languages{
+    width: 100%;
+  }
+  .App{
+    width: 90%;
+  }
+} 
